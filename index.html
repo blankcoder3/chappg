@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="dark">
+    <div class="content-wrapper">
+        <h1 class="chapter-title" id="chapterTitle">Chapter 1: The Beginning</h1>
+        <div class="chapter-content" id="chapterContent">
+            <p>In the heart of an ancient forest, where sunlight filtered through emerald canopies and birdsong echoed through moss-covered trees, there lived a young wanderer named Aria. She had traversed countless lands, seeking the truth behind the legends whispered by travelers at twilight.</p>
+            
+            <p>The path ahead was shrouded in mystery, yet Aria's determination never wavered. Each step brought her closer to understanding the ancient prophecy that had haunted her dreams since childhood—a prophecy that spoke of a hidden realm where time itself bent to the will of those brave enough to seek it.</p>
+            
+            <p>As she walked deeper into the woodland, the air grew thick with magic. Flowers bloomed in impossible colors, and the very ground seemed to hum with energy. This was no ordinary forest; this was the threshold between worlds, the place where reality and legend intertwined.</p>
+            
+            <p>Aria paused at a clearing, her eyes drawn to an ancient stone monument covered in runes that glowed with a soft, ethereal light. She had found what she was looking for—the Gateway of Echoes. According to the texts she had studied, this portal would lead her to answers, but it would also test her in ways she could never imagine.</p>
+            
+            <p>Taking a deep breath, she reached out and touched the stone. The world exploded into light, and her journey truly began.</p>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav" id="bottomNav">
+        <div class="nav-buttons-row">
+            <button class="nav-button side" onclick="previousChapter()" title="Previous Chapter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+            
+            <button class="nav-button" onclick="openChapterIndex()" title="Chapter Index">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 8v.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 12h1v4h1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+            
+            <button class="nav-button" id="playBtn" onclick="togglePlay()" title="Listen">
+                <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 3v18l15-9L5 3z" stroke="currentColor" stroke-width="0" fill="currentColor"></path></svg>
+                <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" style="display: none;"><rect x="6" y="4" width="4" height="16" fill="currentColor"></rect><rect x="14" y="4" width="4" height="16" fill="currentColor"></rect></svg>
+            </button>
+            
+            <button class="nav-button" onclick="toggleSettings()" title="Settings">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke="currentColor" stroke-width="1.2"></path><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06A2 2 0 0 1 2.7 18.88l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09c.7 0 1.31-.39 1.51-1a1.65 1.65 0 0 0-.33-1.82L4.3 6a2 2 0 0 1 2.83-2.83l.06.06c.49.49 1.19.66 1.82.33.61-.33 1-.94 1-1.51V3a2 2 0 0 1 4 0v.09c0 .57.39 1.18 1 1.51.63.33 1.33.16 1.82-.33l.06-.06A2 2 0 0 1 20 4.3l-.06.06c-.49.49-.66 1.19-.33 1.82.33.61.94 1 1.51 1H21a2 2 0 0 1 0 4h-.09c-.57 0-1.18.39-1.51 1-.33.63-.16 1.33.33 1.82l.06.06z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+            
+            <button class="nav-button" onclick="cycleTheme()" title="Color Mode">
+                ◐
+            </button>
+            
+            <button class="nav-button side" onclick="nextChapter()" title="Next Chapter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+        </div>
+
+        <div class="expanded-settings">
+            <div class="setting-group">
+                <div class="setting-label">Font Size</div>
+                <input type="range" class="slider" min="14" max="24" value="18" id="fontSize" onchange="updateFontSize(this.value)">
+                <div style="text-align: center; margin-top: 5px;" id="fontSizeValue">18px</div>
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">Font Family</div>
+                <select class="setting-control" id="fontFamily" onchange="updateFontFamily(this.value)">
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="'Times New Roman', serif">Times New Roman</option>
+                    <option value="'Palatino', serif">Palatino</option>
+                    <option value="'Garamond', serif">Garamond</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Verdana', sans-serif">Verdana</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">Line Height</div>
+                <input type="range" class="slider" min="1.4" max="2.4" step="0.1" value="1.8" id="lineHeight" onchange="updateLineHeight(this.value)">
+                <div style="text-align: center; margin-top: 5px;" id="lineHeightValue">1.8</div>
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">Narration Speed</div>
+                <input type="range" class="slider" min="0.5" max="2" step="0.1" value="1" id="speechRate" onchange="updateSpeechRate(this.value)">
+                <div style="text-align: center; margin-top: 5px;" id="speechRateValue">1x</div>
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">Voice</div>
+                <select class="setting-control" id="voiceSelect" onchange="updateVoice(this.value)">
+                    <option value="0">Default</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chapter Index Modal -->
+    <div class="modal" id="chapterModal">
+        <div class="modal-content" style="position: relative;">
+            <button class="close-modal" onclick="closeModal('chapterModal')">×</button>
+            <h2 class="modal-title">Chapter Index</h2>
+            <ul class="chapter-list" id="chapterList">
+                <li class="chapter-item current" onclick="goToChapter(1)">Chapter 1: The Beginning</li>
+                <li class="chapter-item" onclick="goToChapter(2)">Chapter 2: The Journey</li>
+                <li class="chapter-item" onclick="goToChapter(3)">Chapter 3: Revelation</li>
+                <li class="chapter-item" onclick="goToChapter(4)">Chapter 4: The Trial</li>
+                <li class="chapter-item" onclick="goToChapter(5)">Chapter 5: Homecoming</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Settings object stored in memory
+        const settings = {
+            theme: 'dark',
+            fontSize: 18,
+            fontFamily: 'Georgia, serif',
+            lineHeight: 1.8,
+            speechRate: 1,
+            voiceIndex: 0,
+            currentChapter: 1
+        };
+
+        let isPlaying = false;
+        let speechSynthesis = window.speechSynthesis;
+        let currentUtterance = null;
+        let availableVoices = [];
+
+        // Load voices
+        function loadVoices() {
+            availableVoices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '';
+            availableVoices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        speechSynthesis.onvoiceschanged = loadVoices;
+        loadVoices();
+
+        // Toggle Settings
+        function toggleSettings() {
+            const nav = document.getElementById('bottomNav');
+            nav.classList.toggle('expanded');
+        }
+
+        // Update Functions
+        function updateFontSize(value) {
+            settings.fontSize = value;
+            document.querySelector('.chapter-content').style.fontSize = value + 'px';
+            document.getElementById('fontSizeValue').textContent = value + 'px';
+        }
+
+        function updateFontFamily(value) {
+            settings.fontFamily = value;
+            document.querySelector('.chapter-content').style.fontFamily = value;
+        }
+
+        function updateLineHeight(value) {
+            settings.lineHeight = value;
+            document.querySelector('.chapter-content').style.lineHeight = value;
+            document.getElementById('lineHeightValue').textContent = value;
+        }
+
+        function updateSpeechRate(value) {
+            settings.speechRate = value;
+            document.getElementById('speechRateValue').textContent = value + 'x';
+        }
+
+        function updateVoice(value) {
+            settings.voiceIndex = value;
+        }
+
+        // Theme Functions
+        const themes = ['dark', 'sepia', 'night', 'ocean', 'forest', 'light', 'lavender', 'mint', 'rose', 'autumn', 'midnight', 'sand', 'charcoal', 'ivory', 'slate', 'peach'];        
+        let currentThemeIndex = 0;
+        
+        function cycleTheme() {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            const theme = themes[currentThemeIndex];
+            settings.theme = theme;
+            document.body.className = theme;
+        }
+
+        // Modal Functions
+        function openChapterIndex() {
+            document.getElementById('chapterModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Chapter Navigation
+        function goToChapter(chapterNum) {
+            settings.currentChapter = chapterNum;
+            
+            document.querySelectorAll('.chapter-item').forEach((item, index) => {
+                item.classList.toggle('current', index + 1 === chapterNum);
+            });
+            
+            document.getElementById('chapterTitle').textContent = `Chapter ${chapterNum}`;
+            closeModal('chapterModal');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (isPlaying) {
+                stopSpeech();
+            }
+        }
+
+        function nextChapter() {
+            if (settings.currentChapter < 5) {
+                goToChapter(settings.currentChapter + 1);
+            }
+        }
+
+        function previousChapter() {
+            if (settings.currentChapter > 1) {
+                goToChapter(settings.currentChapter - 1);
+            }
+        }
+
+        // Text-to-Speech
+        function togglePlay() {
+            if (isPlaying) {
+                stopSpeech();
+            } else {
+                startSpeech();
+            }
+        }
+
+        function startSpeech() {
+            const text = document.getElementById('chapterContent').textContent;
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            currentUtterance.rate = settings.speechRate;
+            currentUtterance.voice = availableVoices[settings.voiceIndex];
+            
+            currentUtterance.onend = () => {
+                isPlaying = false;
+                document.getElementById('playIcon').style.display = 'block';
+                document.getElementById('pauseIcon').style.display = 'none';
+            };
+            
+            speechSynthesis.speak(currentUtterance);
+            isPlaying = true;
+            document.getElementById('playIcon').style.display = 'none';
+            document.getElementById('pauseIcon').style.display = 'block';
+        }
+
+        function stopSpeech() {
+            speechSynthesis.cancel();
+            isPlaying = false;
+            document.getElementById('playIcon').style.display = 'block';
+            document.getElementById('pauseIcon').style.display = 'none';
+        }
+
+        // Close modals on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+        
+        // Close expanded menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.getElementById('bottomNav');
+            if (nav.classList.contains('expanded') && !nav.contains(e.target)) {
+                nav.classList.remove('expanded');
+            }
+        });
+
+        // Apply saved settings on load
+        window.onload = function() {
+            updateFontSize(settings.fontSize);
+            updateFontFamily(settings.fontFamily);
+            updateLineHeight(settings.lineHeight);
+            document.getElementById('fontSize').value = settings.fontSize;
+            document.getElementById('fontFamily').value = settings.fontFamily;
+            document.getElementById('lineHeight').value = settings.lineHeight;
+            document.getElementById('speechRate').value = settings.speechRate;
+        };
+    </script>
+</body>
+</html>
