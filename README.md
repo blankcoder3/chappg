@@ -1,0 +1,3 @@
+I can scroll when menus are toggled and need to fix that. mehh will do in fututure if i ever use this project...
+oh also need to add proper chapters and make the next and previous buttons work on order, right now they just stay on same page and just chapter number changed which is not ideal at all
+kudos!
